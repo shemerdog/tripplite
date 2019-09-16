@@ -1,0 +1,12 @@
+<h2>Privileges List</h2>
+
+<ul class="privileges-list">
+    <li *ngFor="let privilege of privileges"
+        (click)="onSelect(privilege)"
+        [class.selected]="privilege === selectedPrivilege">
+        <div>
+            <span class="list-bullet">ID: {{privilege.id}}</span>
+            <span>{{privilege.name}}</span>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,12 @@
+<h2>Users List</h2>
+
+<ul class="users-list">
+    <li *ngFor="let user of users"
+        routerLink="/users/{{user.id}}"
+        [class.selected]="user === selectedUser">
+        <div>
+            <span class="list-bullet">ID: {{user.id}}</span>
+            <span>{{user.name}}</span>
+        </div>
+    </li>
+</ul>
