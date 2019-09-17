@@ -8,6 +8,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
     exports: [
@@ -19,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
         MatTabsModule,
         MatToolbarModule,
         MatIconModule,
+        MatSnackBarModule,
     ]
 })
 export class MaterialModule { }

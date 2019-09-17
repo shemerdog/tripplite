@@ -13,15 +13,6 @@ import { MessageService } from './message.service';
 })
 export class UserService {
 
-    privilegesDisplayNames = {
-        ViewData: "View Data",
-        // [ "ViewUsers", ],
-        // [ "ManageUsers", ],
-        // [ "ViewRoles", ],
-        // [ "ManageRoles", ],
-        // [ "ConfigureSystem", ],
-        // [ "ViewConfigureSystem", ],
-    }
     constructor(
         private httpClient: HttpClient,
         private messageService: MessageService

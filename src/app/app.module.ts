@@ -37,6 +37,7 @@ import { HomeComponent } from './home/home.component';
         MaterialModule
     ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [MessagesComponent]
 })
 export class AppModule { }
