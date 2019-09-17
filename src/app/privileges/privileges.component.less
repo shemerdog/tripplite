@@ -1,0 +1,29 @@
+@import "../app.component.less";
+
+ul {
+  list-style-type: none;
+  width: 20em;
+  padding-left: @content-padding;
+
+  span {
+    padding: @list-item-spaces;
+  }
+
+  .list-bullet {
+    background-color: #888;
+    border-radius: @list-items-radius 0 0 @list-items-radius;
+
+  }
+}
+
+li {
+  background-color: @background-color;
+
+  &.selected {
+    background-color: #fcc;
+  }
+
+  border-radius: @list-items-radius;
+  padding: @list-item-spaces 0;
+  margin: @list-item-spaces;
+}

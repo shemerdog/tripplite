@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 
 
 import { User } from './users/user';
-import { USERS } from './users/mock-users';
+// import { USERS } from './users/mock-users';
 import { MessageService } from './message.service';
 
 @Injectable({
@@ -13,6 +13,15 @@ import { MessageService } from './message.service';
 })
 export class UserService {
 
+    privilegesDisplayNames = {
+        ViewData: "View Data",
+        // [ "ViewUsers", ],
+        // [ "ManageUsers", ],
+        // [ "ViewRoles", ],
+        // [ "ManageRoles", ],
+        // [ "ConfigureSystem", ],
+        // [ "ViewConfigureSystem", ],
+    }
     constructor(
         private httpClient: HttpClient,
         private messageService: MessageService
@@ -38,16 +47,22 @@ export class UserService {
         const url = `${this.usersUrl}/1/${id}`;
         // const url = `${this.usersUrl}/0/${id}`;
         return this.httpClient.get<User>(url)
-        .pipe(
-            tap(_ => this.log(`fetching user: ${id}`)),
-            catchError( this.handleError<User>(`getUser id=${id}`) )
-        );
+            .pipe(
+                tap( () => this.log(`fetching user: ${id}`)),
+                catchError(this.handleError<User>(`getUser id=${id}`))
+            );
     }
     getUsers(): Observable<User[]> {
         return this.httpClient.get<User[]>(this.usersUrl)
             .pipe(
-                tap(_ => this.log("Users Fetched!")),
-                catchError( this.handleError<User[]>('getUsers', []) )
+                map(res => {
+                    return res.map( user => {
+                        user.privileges = user.privileges.replace(/([a-z])([A-Z])/g,"$1 $2").replace(/,/g, ', ');
+                        return user;
+                    });
+                }),
+                tap( () => this.log("Users Fetched!")),
+                catchError(this.handleError<User[]>('getUsers', []))
             );
     }
 }

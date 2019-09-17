@@ -11,9 +11,9 @@ import { MessageService } from './message.service';
 export class AppComponent {
     title = 'Users & Privileges';
 
-    constructor( private messageService: MessageService ) { }
+    constructor(private messageService: MessageService) { }
 
     ngOnInit() {
-        this.messageService.add( "Application Loaded" );
+        this.messageService.add("Application Loaded");
     }
 }

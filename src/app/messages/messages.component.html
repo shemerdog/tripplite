@@ -1,7 +1,10 @@
-<div *ngIf="messageService.messages.length">
-    <h2>Messages</h2>
-    <button class="clear-messasges" (click)="messageService.clear()">
-        Clear
-    </button>
-    <div *ngFor="let message of messageService.messages">{{ message }}</div>
-</div>
+<mat-toolbar color="primary">
+    <span>Messages</span>
+    <span class="separator"></span>
+    <mat-icon (click)="messageService.clear()" aria-label="Clear messages">delete</mat-icon>
+    <mat-divider></mat-divider>
+
+    <div *ngIf="messageService.messages.length">
+        <div *ngFor="let message of messageService.messages">{{ message }}</div>
+    </div>
+</mat-toolbar>
