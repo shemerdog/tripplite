@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { User } from '../users/user';
@@ -14,7 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class UserDetailsComponent implements OnInit {
 
-    @Input() user: User;
+    user: User;
     userProps: string[];
     userPropsIcons = {
         id: 'label',
@@ -49,5 +49,4 @@ export class UserDetailsComponent implements OnInit {
     ngOnInit() {
         this.getUser();
     }
-
 }

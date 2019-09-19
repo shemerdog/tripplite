@@ -16,8 +16,7 @@ export class UsersComponent implements OnInit {
     users: MatTableDataSource<User>;
     displayedColumns: string[] = ['id', 'name', 'privileges', 'description'];
 
-    @ViewChild(MatSort, { static: false })
-    sort: MatSort;
+    @ViewChild(MatSort, { static: false }) sort: MatSort;
 
     constructor(private userService: UserService) { }
 

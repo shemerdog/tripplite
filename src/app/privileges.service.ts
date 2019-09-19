@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Privilege } from './privileges/privilege';
-import { PRIVILEGES } from './privileges/mock-privileges';
+// import { PRIVILEGES } from './privileges/mock-privileges';
 import { MessageService } from './message.service';
 import { HttpClient } from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
@@ -37,12 +37,6 @@ export class PrivilegesService {
     getPrivileges(): Observable<Privilege[]> {
         return this.httpClient.get<Privilege[]>(this.privilegesUrl)
             .pipe(
-                // map(res => {
-                //     return res.map( user => {
-                //         user.privileges = user.privileges.replace(/([a-z])([A-Z])/g,"$1 $2").replace(/,/g, ', ');
-                //         return user;
-                //     });
-                // }),
                 tap( () => this.log("Privileges Fetched!")),
                 catchError(this.handleError<Privilege[]>('getPrivileges', []))
             );

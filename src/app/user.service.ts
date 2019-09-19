@@ -62,6 +62,22 @@ export class UserService {
             );
     }
 
+    updateUser(body: User): Observable<MySqlResponse> {
+        const url = `${this.usersUrl}/${body.id}`;
+        return this.httpClient.put<MySqlResponse>(url, body)
+            .pipe(
+                tap(res => {
+                    if (res.affectedRows === 1) {
+                        this.log(`Updated user: ${body.id}`);
+                    }
+                    else {
+                        this.log(`What?! records count: ${res.affectedRows}`);
+                    }
+                }),
+                catchError(this.handleError<MySqlResponse>(`updateUser id=${body.id}`))
+            );
+    }
+
     getUsers(): Observable<User[]> {
         return this.httpClient.get<User[]>(this.usersUrl)
             .pipe(

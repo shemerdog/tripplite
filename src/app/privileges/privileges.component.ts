@@ -9,7 +9,6 @@ import { PrivilegesService } from '../privileges.service';
     styleUrls: ['./privileges.component.less']
 })
 export class PrivilegesComponent implements OnInit {
-    title = "Privileges";
     privileges: Privilege[];
     selectedPrivilege: Privilege;
 

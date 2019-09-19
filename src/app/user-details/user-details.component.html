@@ -1,4 +1,4 @@
-<div *ngIf="user">
+<div class="cards-wrapper" *ngIf="user">
     <mat-card class="details-card">
         <mat-card-header>
             <mat-card-title>User Details</mat-card-title>
@@ -19,5 +19,5 @@
             <button mat-button (click)="openDeleteDialog()">Delete</button>
         </mat-card-actions>
     </mat-card>
+    <app-details *ngIf="showUpdateForm" [(user)]="user"></app-details>
 </div>
-<app-details *ngIf="showUpdateForm"></app-details>

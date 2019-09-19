@@ -14,9 +14,9 @@
             </mat-form-field>
 
             <mat-form-field>
-                <mat-select placeholder="Privileges" formControlName="privileges">
-                    <mat-option *ngFor="let priv of privilegeService.privileges" [value]="priv.id">
-                        {{ priv.name }}
+                <mat-select placeholder="Privileges" label="Privileges" formControlName="privileges">
+                    <mat-option *ngFor="let priv of privileges" [value]="priv.id">
+                        {{ priv.privilege }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>

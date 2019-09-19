@@ -9,7 +9,7 @@ import { MessageService } from './message.service';
     styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-    title = 'Users & Privileges';
+    title = 'Full Stack Project';
 
     constructor(
         private messageService: MessageService,
