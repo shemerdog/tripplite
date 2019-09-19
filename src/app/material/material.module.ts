@@ -9,6 +9,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
     exports: [
@@ -21,6 +27,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         MatToolbarModule,
         MatIconModule,
         MatSnackBarModule,
+        MatInputModule,
+        MatSelectModule,
+        MatCardModule,
+        MatListModule,
+        MatDialogModule
     ]
 })
 export class MaterialModule { }

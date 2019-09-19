@@ -19,7 +19,6 @@ export class PageTitleComponent implements OnInit {
     checkEvents() {
         this.router.events.subscribe(event => {
             if (event instanceof ActivationStart) {
-                console.log(event.snapshot);
                 this.title = event.snapshot.url[0].path;
             }
         });

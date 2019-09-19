@@ -1,18 +1,23 @@
 <div *ngIf="user">
-    <h2>Users Details</h2>
+    <mat-card class="details-card">
+        <mat-card-header>
+            <mat-card-title>User Details</mat-card-title>
+        </mat-card-header>
 
-    <div><span>id: </span>{{user.id}}</div>
-    <div><span>name: </span>{{user.name}}</div>
-    <div><span>privileges: </span>{{user.privileges}}</div>
-    <div><span>desc: </span>{{user.description}}</div>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item *ngFor="let property of userProps">
+                    <mat-icon mat-list-icon>{{userPropsIcons[property]}}</mat-icon>
+                    <h3 mat-line>{{property | uppercase }}</h3>
+                    <p mat-line>{{user[property]}}</p>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
 
-    <div>
-        <label>name:
-            <input [(ngModel)]="user.name" placeholder="name" />
-        </label>
-        <br>
-        <label>description:
-            <input [(ngModel)]="user.description" placeholder="description" />
-        </label>
-    </div>
+        <mat-card-actions>
+            <button mat-button (click)="showUpdateForm=!showUpdateForm">Change</button>
+            <button mat-button (click)="openDeleteDialog()">Delete</button>
+        </mat-card-actions>
+    </mat-card>
 </div>
+<app-details *ngIf="showUpdateForm"></app-details>
